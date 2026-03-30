@@ -165,7 +165,7 @@
       </div>
       <div class="seq-group">
         <label>序列 2 (Seq2)</label>
-        <input type="text" id="seq2" placeholder="DNA: GCATGCAT | RNA: GCAUGCAU | Protein: RKCA" value="GCATGCU" maxlength="30">
+        <input type="text" id="seq2" placeholder="DNA: GCATGCAT | RNA: GCAUGCAU | Protein: RKCA" value="GCATGCAT" maxlength="30">
       </div>
     </div>
     <div class="controls">
@@ -474,7 +474,7 @@ function resetAll() {
   runBtn.textContent = '▶ 运行比对';
   runBtn.disabled = false;
   seq1Input.value = 'GATTACA';
-  seq2Input.value = 'GCATGCU';
+  seq2Input.value = 'GCATGCAT';
   seqTypeSelect.value = 'dna';
   currentAlgo = 'nw';
   document.querySelectorAll('.algo-tab').forEach(t => t.classList.remove('active'));
