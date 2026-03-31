@@ -263,7 +263,7 @@ function validateSeq(seq, type) {
     protein: /^[ACDEFGHIKLMNPQRSTVWY]+$/i
   };
   if (!patterns[type].test(upper)) {
-    const allowed = type === 'protein' ? '20种氨基酸字母' : 'A/T/G/C' + (type === 'rna' ? '/U' : '');
+    const allowed = type === 'protein' ? '20种氨基酸字母' : type === 'rna' ? 'A/U/G/C' : 'A/T/G/C';
     throw new Error(`序列包含非法字符。${type.toUpperCase()}序列只允许: ${allowed}`);
   }
   return upper;
@@ -279,8 +279,8 @@ function buildMatrix(seq1, seq2) {
   const dp = Array.from({length: m + 1}, () => Array(n + 1).fill(0));
   const ptr = Array.from({length: m + 1}, () => Array(n + 1).fill(null));
 
-  for (let i = 1; i <= m; i++) { dp[i][0] = i * -2; ptr[i][0] = 'up'; }
-  for (let j = 1; j <= n; j++) { dp[0][j] = j * -2; ptr[0][j] = 'left'; }
+  for (let i = 1; i <= m; i++) { dp[i][0] = currentAlgo === 'nw' ? i * -2 : 0; ptr[i][0] = 'up'; }
+  for (let j = 1; j <= n; j++) { dp[0][j] = currentAlgo === 'nw' ? j * -2 : 0; ptr[0][j] = 'left'; }
 
   for (let i = 1; i <= m; i++) {
     for (let j = 1; j <= n; j++) {
@@ -318,6 +318,7 @@ function traceback(seq1, seq2, ptr, dp) {
     if (i === 0) { j--; }
     else if (j === 0) { i--; }
     else {
+      if (currentAlgo === 'sw' && ptr[i][j] === null) break;
       const dir = ptr[i][j];
       if (dir === 'diag') { i--; j--; }
       else if (dir === 'up') { i--; }
@@ -349,7 +350,7 @@ function traceback(seq1, seq2, ptr, dp) {
 
 function renderMatrix(seq1, seq2, dp) {
   const m = seq1.length, n = seq2.length;
-  let html = '<table class="matrix"><thead><tr><th></th>';
+  let html = '<table class="matrix"><thead><tr><th></th><th></th>';
   for (let j = 0; j < n; j++) html += `<th class="col-hdr">${seq2[j]}</th>`;
   html += '</tr></thead><tbody>';
   for (let i = 0; i <= m; i++) {
