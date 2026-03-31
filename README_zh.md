@@ -20,10 +20,11 @@
 - [打分方案](#打分方案)
 - [快速开始](#快速开始)
 - [使用方法](#使用方法)
-- [界面预览](#界面预览)
 - [技术栈](#技术栈)
 - [贡献指南](#贡献指南)
 - [许可协议](#许可协议)
+
+> 📖 English version: [README.md](README.md)
 
 ---
 
@@ -123,16 +124,6 @@ DNA:     ACGTACGT  /  ACGTTGCA
 RNA:     AUGCUAUG  /  AUGCUAUC
 Protein: HEAGAWGHEE  /  PAWHEAE
 ```
-
----
-
-## 界面预览
-
-> *截图将在首发版本后添加。*
-
-| DP 矩阵（Needleman-Wunsch） | Traceback 路径 | 比对结果 |
-|---|---|---|
-| ![DP Matrix placeholder](docs/screenshots/dp-matrix.png) | ![Traceback placeholder](docs/screenshots/traceback.png) | ![Result placeholder](docs/screenshots/result.png) |
 
 ---
 

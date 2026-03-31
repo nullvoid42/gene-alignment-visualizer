@@ -20,10 +20,11 @@ An interactive, browser-based visualization tool for classic biological sequence
 - [Scoring Scheme](#scoring-scheme)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
-- [Screenshots](#screenshots)
 - [Tech Stack](#tech-stack)
 - [Contributing](#contributing)
 - [License](#license)
+
+> 📖 中文说明：[README_zh.md](README_zh.md)
 
 ---
 
@@ -124,16 +125,6 @@ DNA:     ACGTACGT  /  ACGTTGCA
 RNA:     AUGCUAUG  /  AUGCUAUC
 Protein: HEAGAWGHEE  /  PAWHEAE
 ```
-
----
-
-## Screenshots
-
-> *Screenshots will be added after the initial release.*
-
-| DP Matrix (Needleman-Wunsch) | Traceback Path | Aligned Result |
-|---|---|---|
-| ![DP Matrix placeholder](docs/screenshots/dp-matrix.png) | ![Traceback placeholder](docs/screenshots/traceback.png) | ![Result placeholder](docs/screenshots/result.png) |
 
 ---
 
